@@ -1,0 +1,14 @@
+<configuration>
+    <encoding>UTF-8</encoding>
+    <protocol>https</protocol>
+    <title>FrameWork Setup Report</title>
+    <reportName>Test Report</reportName>
+    <media>
+        <screenshotFolder>screenshots</screenshotFolder>
+    </media>
+
+    <imageSize>large</imageSize>  <!-- Change to large -->
+    <theme>standard</theme>
+    <timeStampFormat>MMM dd, yyyy HH:mm:ss</timeStampFormat>
+    <documentTitle>FrameWork Setup Report</documentTitle>
+</configuration>
