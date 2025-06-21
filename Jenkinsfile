@@ -4,7 +4,6 @@ pipeline {
     tools {
         maven 'Maven 3.9.10'   // Make sure this matches your Jenkins Maven tool config
         jdk 'JDK 21.0.7'          // Configure this in Jenkins → Global Tool Configuration
-        git 'Default'
     }
 
     environment {
