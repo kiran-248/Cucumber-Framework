@@ -6,10 +6,6 @@
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
     </listeners>
 
-
-
-
-
     <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <parameter name="delay" value="0"/>
@@ -19,6 +15,4 @@
     </test>
 
 
-
-
-   </suite>
+</suite>

@@ -31,14 +31,6 @@ public class Hooks {
     @Before
     public void setup(Scenario scenario) throws IOException, AWTException, InterruptedException {
 
-        /*
-        int threadNumber = threadCounter.incrementAndGet();
-
-        if (threadNumber > 1) {
-            // Delay only for 2nd thread (or beyond)
-            Thread.sleep(20000); // or 10000 for 10 seconds
-        } */
-
 
         String browser = null;
 

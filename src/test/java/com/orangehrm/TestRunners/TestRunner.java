@@ -10,8 +10,7 @@ import org.testng.annotations.*;
 @CucumberOptions(
 
 
-
-        features =  "src/test/Resources/Features/",
+        features = "src/test/Resources/Features/",
         glue = {"com.orangehrm.Steps", "com.orangehrm.hooks"},
         tags = "@login",
         dryRun = false,
@@ -25,36 +24,36 @@ import org.testng.annotations.*;
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {
-        @Override
-        @DataProvider(parallel = true)
-        public Object[][] scenarios() {
-                return super.scenarios();
+    @Override
+    @DataProvider(parallel = true)
+    public Object[][] scenarios() {
+        return super.scenarios();
+    }
+
+    @BeforeClass(alwaysRun = true)
+    @Parameters({"browser", "delay"})
+    public void setup(@Optional("chrome") String browserName, @Optional("0") String delay, ITestContext context) {
+        try {
+            int delayMs = Integer.parseInt(delay);
+            if (delayMs > 0) {
+                Thread.sleep(delayMs);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
-        @BeforeClass(alwaysRun = true)
-        @Parameters({"browser", "delay"})
-        public void setup(@Optional("chrome") String browserName, @Optional("0") String delay, ITestContext context) {
-                try {
-                        int delayMs = Integer.parseInt(delay);
-                        if (delayMs > 0) {
-                                Thread.sleep(delayMs);
-                        }
-                } catch (InterruptedException e) {
-                        e.printStackTrace();
-                }
-
-                // Use browserName from context only if provided via TestNG Runner
-                if (browserName == null || browserName.isEmpty()) {
-                        Object browserFromContext = context.getAttribute("browser");
-                        if (browserFromContext != null) {
-                                browserName = browserFromContext.toString();
-                        } else {
-                                browserName = "chrome"; // Fallback default
-                        }
-                }
-
-                context.setAttribute("browser", browserName);
+        // Use browserName from context only if provided via TestNG Runner
+        if (browserName == null || browserName.isEmpty()) {
+            Object browserFromContext = context.getAttribute("browser");
+            if (browserFromContext != null) {
+                browserName = browserFromContext.toString();
+            } else {
+                browserName = "chrome"; // Fallback default
+            }
         }
+
+        context.setAttribute("browser", browserName);
+    }
 
 
 }
