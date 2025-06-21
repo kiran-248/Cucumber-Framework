@@ -8,6 +8,8 @@ pipeline {
 
     environment {
         // Define any environment variables here
+        BROWSER = "chrome"
+        ENV = "qa"
     }
 
     stages {
